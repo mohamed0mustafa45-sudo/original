@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحميل متجر أوريجينال</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+    
+    :root {
+      --dark: #0d1b2a;
+      --blue: #1b263b;
+      --light: #415a77;
+      --gold: #ffd700;
+      --dark-gold: #daa520;
+    }
+    
+    * {margin:0;padding:0;box-sizing:border-box;}
+    
+    body {
+      font-family: 'Cairo', Tahoma, sans-serif;
+      background: linear-gradient(135deg, var(--dark), var(--blue));
+      color: white;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: rgba(13,27,42,0.9);
+      padding: 15px 0;
+      border-bottom: 2px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .container {max-width: 1200px; margin: auto; padding:0 20px;}
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {display: flex; align-items: center; gap: 10px;}
+    .logo img {height: 45px; border-radius: 6px;}
+    .logo-text {font-size: 24px; font-weight: 800; color: var(--gold);}
+
+    .nav-links {display: flex; gap: 20px; flex-wrap: wrap;}
+    .nav-links a {color: white; text-decoration: none; font-weight: 600;}
+    .nav-links a:hover {color: var(--gold);}
+
+    .hero {
+      padding: 60px 0;
+      text-align: center;
+      background: url('https://i.ibb.co/chxLrm8K/15717.png') center/cover no-repeat;
+      position: relative;
+    }
+    .hero::before {content: ''; position: absolute; inset: 0; background: rgba(13,27,42,0.85);}
+    .hero-content {position: relative; z-index: 2;}
+    .hero-title {font-size: 42px; font-weight: 800; color: var(--gold);}
+    .hero-subtitle {margin-top: 15px; font-size: 20px; color: #e0e0e0;}
+
+    .main-content {padding: 60px 0;}
+    .section-title {text-align: center; font-size: 36px; margin-bottom: 40px; color: var(--gold);}
+    .section-title::after {content: ''; display:block; width:100px; height:3px; background: var(--gold); margin:10px auto 0;}
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card {
+      background: rgba(27,38,59,0.8);
+      border-radius: 10px;
+      padding: 25px;
+      text-align: center;
+      border: 1px solid var(--light);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(255,215,0,0.2);
+      border-color: var(--gold);
+    }
+
+    .feature-icon {font-size: 40px; color: var(--gold); margin-bottom: 15px;}
+    .feature-title {font-size: 24px; margin-bottom: 15px; color: var(--gold);}
+    .feature-card p {font-size: 16px; color:#ddd;}
+
+    /* Screenshots Scroll */
+    .screenshots {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 60px;
+    }
+
+    .screenshots::-webkit-scrollbar {height: 6px;}
+    .screenshots::-webkit-scrollbar-thumb {background: var(--gold); border-radius: 10px;}
+
+    .screenshot-card {
+      min-width: 200px;
+      max-width: 200px;
+      height: 360px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .screenshot-card:hover {transform: scale(1.05);}
+    .screenshot-card img {width: 100%; height: 100%; object-fit: cover;}
+
+    .download-section {
+      background: rgba(27,38,59,0.9);
+      padding: 50px 20px;
+      text-align: center;
+      border-radius: 15px;
+      border: 2px solid var(--gold);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .download-title {font-size: 32px; margin-bottom: 20px; color: var(--gold);}
+    .download-text {margin-bottom: 30px; font-size: 18px; color:#ddd;}
+    .download-btn {
+      display: inline-flex; align-items:center; gap:10px;
+      background: linear-gradient(145deg,var(--gold),var(--dark-gold));
+      color:#000; font-weight:800; font-size:20px;
+      padding:16px 40px; border-radius:50px; text-decoration:none;
+      box-shadow:0 5px 15px rgba(255,215,0,0.3); transition: all 0.3s;
+    }
+    .download-btn:hover {transform: translateY(-3px); box-shadow:0 8px 20px rgba(255,215,0,0.4);}
+    .download-btn:active {transform: translateY(1px);}
+
+    .footer {background: rgba(13,27,42,0.95); padding:30px 0; text-align:center; border-top:2px solid var(--gold);}
+    .footer-text {color: #e0e0e0;}
+
+    @media (max-width:768px){
+      .header-content {flex-direction: column; gap: 15px;}
+      .nav-links {justify-content:center;}
+      .hero-title {font-size:32px;}
+      .hero-subtitle {font-size:18px;}
+      .section-title {font-size:28px;}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="https://i.ibb.co/chxLrm8K/15717.png" alt="متجر أوريجينال">
+          <div class="logo-text">متجر أوريجينال</div>
+        </div>
+        <nav class="nav-links">
+          <a href="#">الرئيسية</a>
+          <a href="#">المميزات</a>
+          <a href="#">المتجر</a>
+          <a href="#">التنزيل</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">حمل تطبيق متجر أوريجينال الآن</h1>
+        <p class="hero-subtitle">تصفح المنتجات بسهولة، واطلب ما تحتاجه مباشرة إلى الواتساب</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="main-content">
+    <div class="container">
+
+      <h2 class="section-title">مميزات التطبيق</h2>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <h3 class="feature-title">تصفح سريع</h3>
+          <p>تصفح كل المنتجات بسهولة وسرعة دون أي تأخير.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3 class="feature-title">آمن تماماً</h3>
+          <p>التطبيق موثوق وآمن، ولا يتم التعامل مع أي بيانات شخصية.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-crown"></i></div>
+          <h3 class="feature-title">طلب مباشر</h3>
+          <p>اطلب أي منتج وسيتم توجيهك مباشرة للواتساب للتواصل والتأكيد.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">صور التطبيق</h2>
+      <div class="screenshots">
+        <div class="screenshot-card"><img src="https://i.ibb.co/Xk4GWV0Q/96458.jpg" alt="صورة التطبيق"></div>
+        <div class="screenshot-card"><img src="https://i.ibb.co/q3bMsKhm/96459.jpg" alt="صورة التطبيق"></div>
+        <div class="screenshot-card"><img src="https://i.ibb.co/gMYLQr1v/96461.jpg" alt="صورة التطبيق"></div>
+      </div>
+
+      <div class="download-section">
+        <h2 class="download-title">حمل التطبيق الآن</h2>
+        <p class="download-text">اضغط على زر التحميل للحصول على تطبيق متجر أوريجينال مباشرة من MediaFire واحصل على أفضل تجربة للتسوق.</p>
+        <a href="https://www.mediafire.com/file/6zf4vd41hgyx53j/%25F0%259D%2595%2586%25F0%259D%2595%25A3%25F0%259D%2595%259A%25F0%259D%2595%2598%25F0%259D%2595%259A%25F0%259D%2595%259F%25F0%259D%2595%2592%25F0%259D%2595%259D_1.0.apk/file" class="download-btn">
+          <i class="fas fa-download"></i> تحميل التطبيق
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">© 2026 متجر أوريجينال. جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+</body>
+</html>
